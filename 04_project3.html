@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Time</title>
+    <style>
+a{
+            border: 1px solid white;
+            color: black;
+            text-decoration: none;
+            padding: 12px 15px;
+            margin: 15px;
+            position: relative;
+            top: 30px;
+        }
+        nav{
+            background-color: blanchedalmond;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            margin: auto;
+        }
+        body{
+            background-color: rgba(22, 22, 22, 0.897);
+            color: azure;
+        }
+        .clock{
+            height: 50px;
+            width: 150px;
+            background-color: orange;
+            border-radius: 15px;
+            margin: auto;
+            position: relative;
+            top: 40svh;
+            padding: 20px 13px;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <a href="">Home</a>
+            <a href="">Youtube Channel</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="clock"></div>
+    </div>
+
+    <script>
+        const clock = document.querySelector(".clock");
+
+        setInterval(function () {
+            let date = new Date();
+            clock.innerHTML = date.toLocaleTimeString(); 
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Body Mass Index</title>
+    <style>
+         a{
+            border: 1px solid white;
+            color: black;
+            text-decoration: none;
+            padding: 12px 15px;
+            margin: 15px;
+            position: relative;
+            top: 30px;
+        }
+        nav{
+            background-color: blanchedalmond;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <a href="">Home</a>
+            <a href="">Youtube Channel</a>
+        </div>
+    </nav>
+    <section>
+    <div class="container">
+        <h1>BMI Calculator </h1>
+    </div>
+<div>
+    <form action="\">
+        <table>
+            <tr>
+                <td><lable>Height in CM :</lable></td>
+                <td><input type="text" id="height"></td>
+            </tr>
+            <tr>
+                <td><lable>Weight in KG :</lable></td>
+                <td><input type="text" id="weight"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button>Calculate</button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <b id="result"></b>
+                    <b id="result1"></b>
+                </td>
+            </tr> 
+            <tr>
+                <td>
+                    <h3>BMI weight guide</h3>
+                    <p class="underWeight">Under weight = Less than 20kg</p>
+                    <p class="normalWeight">Noramal Range = 20kg to 40kg</p>
+                    <p class="overWeight">Overweight = Greater than 50kg</p>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+    </section>
+
+    <script>
+      const form = document.querySelector('form');
+
+      form.addEventListener('submit', function (e){
+        e.preventDefault();
+
+        const height = parseInt(document.querySelector('#height').value);
+        const weight = parseInt(document.querySelector('#weight').value);
+        const result = document.querySelector('#result');
+
+        if(height === '' || height < 0 || isNaN(height)){
+            result.innerHTML = `Please enter valid height value ${height}`;
+        }else if(weight === '' || weight < 0 || isNaN(weight)){
+            result.innerHTML = `Please enter valid weight value ${weight}`;
+        }else{
+            const bmi = (weight / ((height * height) / 1000)).toFixed(2)
+
+            result.innerHTML = `<span>${bmi}</span>`;
+
+            if(bmi <= '20'){
+                const underWe = document.querySelector(".result1"); // Get the element first
+                underWe.innerHTML = `You are underweight, and your weight is ${bmi}`;
+                underWe.style.color = "red"; // Change styleed";
+            }
+        }
+      })
+    </script>
+</body>
+</html>

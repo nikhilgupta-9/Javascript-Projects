@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript Project 1</title>
+    <style>
+        #grey{
+            background-color: grey;
+        }
+        #red{
+            background-color: red;
+        }
+        #green{
+            background-color: green;
+        }
+        #blue{
+            background-color: blue;
+            
+        }
+        .button{
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+            margin: 20px;
+            /* padding: 100px 100px; */
+        }
+        a{
+            border: 1px solid white;
+            color: black;
+            text-decoration: none;
+            padding: 12px 15px;
+            margin: 15px;
+            position: relative;
+            top: 30px;
+        }
+        nav{
+            background-color: blanchedalmond;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            margin: auto;
+        }
+        .body1{
+            margin: auto; 
+            margin-top: 50px; 
+        }
+        h3{
+            text-align: center;
+        }
+        .btn-body{
+         display: flex;
+         justify-content: center;
+        }
+        h6{
+            color: purple;
+            font-size: 19px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <a href="">Home</a>
+            <a href="">Youtube Channel</a>
+        </div>
+    </nav>
+
+    <section class="body1">
+        <h3>Color Scheme Switcher</h3>
+        <div class="btn-body">
+        <span class="button" id ="grey"></span>
+        <span class="button" id ="red"></span>
+        <span class="button" id ="blue"></span>
+        <span class="button" id ="green"></span>
+    </div>
+    <h6 class="h6">Try clicking on one of the colors above to chage the background color of this page !</h6>
+    </section>
+    
+
+    <script>
+        const buttons = document.querySelectorAll(".button");
+        // console.log(buttons);
+
+        const body = document.querySelector("body");
+        const h6 = document.getElementsByClassName("h6");
+        console.log(h6)
+
+        buttons.forEach(function(button){
+            console.log(button)
+
+            button.addEventListener("click", function(e){
+                console.log(e);
+                console.log(e.target);
+                if(e.target.id === "grey"){
+                    body.style.backgroundColor = "grey";
+                    document.querySelector(".h6").innerHTML = "You are choosing grey color";
+                    document.querySelector(".h6").style.color = "white";
+                }else if(e.target.id === "red"){
+                    body.style.backgroundColor = e.target.id;
+                    document.querySelector(".h6").innerHTML = "You are choosing red color";
+                    document.querySelector(".h6").style.color = "white";
+                }else if(e.target.id === "blue"){
+                    body.style.background = e.target.id;
+                    document.querySelector(".h6").innerHTML = "You are choosing blue color";
+                    document.querySelector(".h6").style.color = "white";
+                }else if(e.target.id === "green"){
+                    body.style.background = e.target.id;
+                    document.querySelector(".h6").innerHTML = "You are choosing green color";
+                    document.querySelector(".h6").style.color = "white"; 
+                }
+            
+            })
+        })
+        
+    </script>
+</body>
+</html>
